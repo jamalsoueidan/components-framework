@@ -10,6 +10,13 @@ const testState = {
     id: 1,
     text: "Sten",
     completed: true
+  }],
+  navigation: [{
+    name: "Home",
+    link: "/"
+  }, {
+    name: "Todo",
+    link: "/todos"
   }]
 }
 

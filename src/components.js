@@ -1,5 +1,4 @@
-import Filter from './filter/component.js'
-import List from './list/component.js'
-import Form from './form/component.js'
+import Todo from './todo/component'
+import Navigation from './navigation/component'
 
-export { Filter, List, Form };
+export { Todo, Navigation };

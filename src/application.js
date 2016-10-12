@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Filter, List, Form } from './components'
+import { Todo, Navigation } from './components'
 
 const Application = () => (
   <div>
-    <Form />
-    <List />
-    <Filter filterBy="all">All</Filter> -
-    <Filter filterBy="completed">Completed</Filter>
+    <Navigation />
+    <Todo />
   </div>
 )
 
