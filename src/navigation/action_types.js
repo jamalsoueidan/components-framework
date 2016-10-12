@@ -1,3 +1,1 @@
-const ADD = "navigation/ADD"
-
-export { ADD }
+export const ADD = "navigation/ADD"
