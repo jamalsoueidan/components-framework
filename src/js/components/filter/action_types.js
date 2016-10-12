@@ -1,0 +1,1 @@
+export const SET_VISIBILITY_FILTER = 'filter/SET_VISIBILITY_FILTER';
