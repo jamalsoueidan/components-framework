@@ -5,9 +5,9 @@ import { combineReducers } from 'redux'
   One reducer for every component if needed, nested component should NOT have reducer! so todo must be refactored!
  */
 
-import filter from './todo/filter';
-import list from './todo/list'
-import navigation from './navigation'
+import filter from './components/todo/filter';
+import list from './components/todo/list'
+import navigation from './components/navigation'
 
 export default combineReducers({
   [filter.key]: filter.reducer,
