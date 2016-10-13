@@ -1,5 +1,5 @@
 ### NOT FINISHED
-* implement BEM/CSS 
+* implement BEM/CSS
 * figure out how to handle component state based on url id
 
 
@@ -10,26 +10,35 @@ UI component can consist of:
   - Data (Redux, Actions)
   - Styling
 
-The way to create a new UI Component is to create a new folder inside components:
+The way to create a new UI Component is to create a new folder inside components with the following.
 
 Navigation:
-- /action_types.js
-- /actions.js
-- /component.js
-- /index.js
-- /reducer.js
+- /action_types.js (data)
+- /actions.js (data)
+- /component.js (component)
+- /index.js (data)
+- /reducer.js (data)
 
-To render the new component you must place it somewhere in the Application component, if you are going to use any data inside the component, you must connect the component with redux, the way to do it is to create index.js file with all the necessary definitions.
+If you want to add your reducer to redux, you must declare index.js file with all the necessary definitions.
 
 ```javascript
-import * as actions from './actions';
-import * as component from './component';
 import reducer from './reducer';
 
 // If you are going to use reducer, then you must specify a key for your component!
 const key = "filterBy";
 
 // Here we export all files
-export default { actions, component, reducer, key };
+export default { reducer, key };
 ```
 
+Also you should add your component to /components/index.js.
+
+```javascript
+import Todo from './todo/component'
+import Navigation from './navigation/component'
+import Counter from './counter/component'
+
+export { Todo, Navigation, Counter };
+```
+
+Then you are done! 
