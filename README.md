@@ -5,7 +5,8 @@ UI component can consist of:
   - Data (Redux, Actions)
   - Styling
 
- The way to create a new UI Component is to create a new folder inside components:
+
+The way to create a new UI Component is to create a new folder inside components:
 
 Navigation:
 - /action_types.js
