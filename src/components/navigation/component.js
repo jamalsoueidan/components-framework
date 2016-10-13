@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router';
 
 const Navigation = ({items}) => (
   <ul>
-    <li>Navigation:</li>
-    {items.map(item => <li key={item.link}>{item.name}</li>)}
+    <li><strong>Navigation:</strong></li>
+    {items.map(item => (
+      <li key={item.link}>
+        <Link to={item.link}>{item.name}</Link>
+      </li>
+    ))}
   </ul>
 )
 
