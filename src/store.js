@@ -18,8 +18,8 @@ const testState = {
     name: "Todo",
     link: "/todos"
   }, {
-    name: "Analytics",
-    link: "/analytics"
+    name: "Contact us",
+    link: "/contact"
   }]
 }
 

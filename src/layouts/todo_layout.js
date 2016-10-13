@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Todo } from '../components'
+import { Todo, Counter } from '../components'
 
-const TodoLayout = (props) => (
+const TodoLayout = () => (
   <div>
     <Todo />
+    <Counter />
   </div>
 )
 
