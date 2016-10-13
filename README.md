@@ -1,10 +1,14 @@
+### NOT FINISHED
+* implement BEM/CSS 
+* figure out how to handle component state based on url id
+
+
 # Build your application or framework using components!
 
 UI component can consist of:
   - Component
   - Data (Redux, Actions)
   - Styling
-
 
 The way to create a new UI Component is to create a new folder inside components:
 
@@ -29,4 +33,3 @@ const key = "filterBy";
 export default { actions, component, reducer, key };
 ```
 
-NOT FINISHED
