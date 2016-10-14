@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
 
 /*
   Initialize reducer
@@ -12,5 +13,6 @@ import navigation from './components/navigation'
 export default combineReducers({
   [filter.key]: filter.reducer,
   [list.key]: list.reducer,
-  [navigation.key]: navigation.reducer
+  [navigation.key]: navigation.reducer,
+  routing: routerReducer
 })
