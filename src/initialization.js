@@ -1,11 +1,11 @@
 import React from 'react'
-import { ContentLayout, TodoLayout, ContactLayout } from './layouts/content_layout'
+import { render } from 'react-dom'
 import { Route } from 'react-router';
+import { configureRoutes } from './routes'
+import { ContentLayout } from './layouts'
 
-import { boot } from './routes'
-boot('application',
-  <Route path="/*" component={ContentLayout}>
-    <Route path="/todos" component={TodoLayout} />
-    <Route path="/contact" component={ContactLayout} />
-  </Route>
+const routes = configureRoutes(
+  <Route path="/*" component={ContentLayout} />
 )
+
+render(routes, document.getElementById("application"));
