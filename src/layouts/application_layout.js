@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Todo, Navigation } from '../components'
 
-const ApplicationLayout = (props) => (
-  <div>
+const ApplicationLayout = (props) => {
+  return (<div>
     <Navigation />
     {props.children}
-  </div>
-)
+  </div>)
+}
 
 export default ApplicationLayout
