@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { add } from '../list/actions'
+import { add } from '../actions'
 
 /*
   Should this component have access to LIST COMPONENT actions(api)
   or should the parent component have the responsiblilty to assign
   LIST COMPONENT actions(api) through props to this component?
 
-  > this component notify about the new todo! 
+  > this component notify about the new todo!
 */
 
 class Form extends React.Component {

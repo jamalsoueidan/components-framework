@@ -5,7 +5,7 @@ const ContactLayout = () => (
   <div>
     <Counter />
     <Counter />
-      <Counter />
+    <Counter />
   </div>
 )
 

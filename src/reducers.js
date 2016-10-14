@@ -6,7 +6,7 @@ import { combineReducers } from 'redux'
  */
 
 import filter from './components/todo/filter';
-import list from './components/todo/list'
+import list from './components/todo'
 import navigation from './components/navigation'
 
 export default combineReducers({
