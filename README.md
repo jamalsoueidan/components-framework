@@ -41,4 +41,11 @@ import Counter from './counter/component'
 export { Todo, Navigation, Counter };
 ```
 
-Then you are done! 
+Then you are done!
+
+# Framework initialization
+
+1. Reducer
+2. createStore
+3. Layouts/Components
+4. Router

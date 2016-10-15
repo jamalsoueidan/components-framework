@@ -5,7 +5,7 @@ import { TodoLayout } from './todo_layout'
 class ContentLayout extends Component {
   render() {
     console.log("content", this.props)
-    return (this.props.children)
+    return (<div>Content{this.props.children}</div>)
   }
 }
 
