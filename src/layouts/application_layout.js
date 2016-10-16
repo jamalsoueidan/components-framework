@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Todo, Navigation } from '../components'
+import React from "react"
+import { Navigation } from "../components"
 
-const ApplicationLayout = (props) => {
-  return (<div>
+const ApplicationLayout = (props) => (
+  <div>
     <Navigation />
     {props.children}
-  </div>)
-}
+  </div>
+)
 
 export default ApplicationLayout

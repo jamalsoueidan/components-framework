@@ -27,7 +27,7 @@
   "parser": "babel-eslint",
 
   "plugins": [
-
+    "react"
   ],
 
   "rules": {
@@ -60,7 +60,7 @@
     "max-params": 0,
     "max-statements": 0,
     "new-cap": [2, { "newIsCap": true, "capIsNew": false }],
-    "newline-after-var": [2, "always"],
+    "newline-after-var": [2, "never"],
     "new-parens": 2,
     "no-alert": 0,
     "no-array-constructor": 2,
@@ -160,16 +160,16 @@
     "operator-linebreak": [2, "after"],
     "padded-blocks": 0,
     "quote-props": 0,
-    "quotes": [2, "single", "avoid-escape"],
+    "quotes": [2, "double", "avoid-escape"],
     "radix": 2,
-    "semi": [2, "always"],
+    "semi": [2, "never"],
     "semi-spacing": 0,
     "sort-vars": 0,
-    "space-after-keywords": [2, "always"],
+    "space-after-keywords": ["error", "never"],
     "space-before-blocks": [2, "always"],
     "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
     "space-in-brackets": 0,
-    "space-in-parens": [2, "never"],
+    "space-in-parens": 0,
     "space-infix-ops": 2,
     "space-return-throw-case": 2,
     "space-unary-ops": [2, { "words": true, "nonwords": false }],

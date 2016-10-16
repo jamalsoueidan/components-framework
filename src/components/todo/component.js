@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import Form from './form/component'
-import List from './list/component'
-import Filter from './filter/component'
-import {remove, toggle} from './actions'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import Form from "./form/component"
+import List from "./list/component"
+import Filter from "./filter/component"
+import {remove, toggle} from "./actions"
 
 const style = {
   border: "1px red solid",
@@ -39,4 +39,4 @@ const mapDispatchToProps = {
   onToggle: toggle
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default connect(mapStateToProps, mapDispatchToProps)(Todo)

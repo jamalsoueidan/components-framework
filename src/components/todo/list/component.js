@@ -1,5 +1,4 @@
-import React from 'react';
-import Item from './components/item'
+import React from "react"
 
 const List = ({events, items, visible}) => (
   <ul className="media-list">
@@ -7,4 +6,4 @@ const List = ({events, items, visible}) => (
   </ul>
 )
 
-export default List;
+export default List

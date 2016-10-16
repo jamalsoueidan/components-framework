@@ -6,7 +6,7 @@ var path = require('path');
 var env = require('yargs').argv.mode;
 
 var libraryName = 'Framework';
-var buildName = "build";
+var buildName = "test";
 
 var plugins = [], outputFile;
 

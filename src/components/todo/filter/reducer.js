@@ -1,4 +1,4 @@
-import * as at from './action_types.js';
+import * as at from "./action_types.js"
 
 const visibilityFilter = (state = "all", action) => {
   switch (action.type) {
@@ -9,4 +9,4 @@ const visibilityFilter = (state = "all", action) => {
   }
 }
 
-export default visibilityFilter;
+export default visibilityFilter

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Counter } from '../components'
+import React from "react"
+import { Counter } from "../components"
 
 const ContactLayout = () => (
   <div>
