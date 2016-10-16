@@ -1,5 +1,11 @@
-import { createStore } from 'redux'
-import reducer from './reducers.js'
+import { createStore, combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+
+import privateReducers from './reducers';
+
+const extend = (object, source) => {
+  Object.keys(source).forEach(key => object[key] = source[key]);
+}
 
 const testState = {
   list: [{
@@ -23,8 +29,10 @@ const testState = {
   }]
 }
 
-const configureStore = () => {
-  return createStore(reducer, testState)
+let store;
+const configureStore = (reducers={}) => {
+  extend(privateReducers, reducers)
+  store = createStore(combineReducers(privateReducers), testState)
 }
 
-export { configureStore }
+export { configureStore as default, store }

@@ -10,42 +10,44 @@ UI component can consist of:
   - Data (Redux, Actions)
   - Styling
 
-The way to create a new UI Component is to create a new folder inside components with the following.
+We organize our components by creating a new folder with all necessary files for every component, you can structure your component as you wish! We do it this way:
 
 Navigation:
 - /action_types.js (data)
 - /actions.js (data)
 - /component.js (component)
-- /index.js (data)
+- /index.js (exports)
 - /reducer.js (data)
 
-If you want to add your reducer to redux, you must declare index.js file with all the necessary definitions.
+# Configure framework
+
+Before starting your application, you might want to add your reducer to redux, the way to do it is to configure our store before starting the app.
 
 ```javascript
-import reducer from './reducer';
+const Counter = (state=1, action) => (state);
+const reducers = {counter: Counter}
 
-// If you are going to use reducer, then you must specify a key for your component!
-const key = "filterBy";
-
-// Here we export all files
-export default { reducer, key };
+import configureStore from './config/store'
+configureStore(reducers)
 ```
 
-Also you should add your component to /components/index.js.
+Our framework only display all around interfaces we call Chrome, the content place is where you place whatever you want depending on the url, to configure routes you use configureRoutes as follows:
 
 ```javascript
-import Todo from './todo/component'
-import Navigation from './navigation/component'
-import Counter from './counter/component'
+import configureRoutes from './config/routes';
 
-export { Todo, Navigation, Counter };
+const ContentLayout = () => (<div>content</div>)
+
+configureRoutes(<Route path="/*" component={ContentLayout} />)
 ```
 
-Then you are done!
+After you finished configuring the store and routes, you are ready to start up your application:
+
+```javascript
+import start from './config/start'
+start('application'); //<div id="application"></div>
+```
 
 # Framework initialization
 
-1. Reducer
-2. createStore
-3. Layouts/Components
-4. Router
+-
