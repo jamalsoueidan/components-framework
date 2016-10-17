@@ -11,9 +11,11 @@ import { Route } from 'react-router';
 
 import configureRoutes from './config/routes';
 
-const ContentLayout = () => (<div>content</div>)
+const ContentLayout = () => (
+  <div>content</div>
+)
 
-configureRoutes(<Route path="/*" component={ContentLayout} />)
+configureRoutes(<Route path="/content" component={ContentLayout} />)
 
 /* ************************************
   Configure Store : Here we add Counter reducer as example

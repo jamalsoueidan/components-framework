@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { connect } from "react-redux"
 import Form from "./form/component"
 import List from "./list/component"
@@ -16,7 +16,7 @@ const style = {
 const Todo = ({items, visible, onRemove, onToggle}) => {
   const events = { onRemove, onToggle }
 
-  if ( visible === "completed"  ) {
+  if ( visible === "completed" ) {
     items = items.filter(e => e.completed === true)
   }
 
