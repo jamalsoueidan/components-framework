@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import Form from './form/component'
-import List from './list/component'
-import Filter from './filter/component'
-import {remove, toggle} from './actions'
+import React from "react"
+import { connect } from "react-redux"
+import Form from "./form/component"
+import List from "./list/component"
+import Filter from "./filter/component"
+import {remove, toggle} from "./actions"
 
 const style = {
   border: "1px red solid",
@@ -16,7 +16,7 @@ const style = {
 const Todo = ({items, visible, onRemove, onToggle}) => {
   const events = { onRemove, onToggle }
 
-  if ( visible === "completed"  ) {
+  if ( visible === "completed" ) {
     items = items.filter(e => e.completed === true)
   }
 
@@ -39,4 +39,4 @@ const mapDispatchToProps = {
   onToggle: toggle
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default connect(mapStateToProps, mapDispatchToProps)(Todo)

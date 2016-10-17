@@ -1,9 +1,9 @@
 ### NOT FINISHED
 * implement BEM/CSS
 * figure out how to handle component state based on url id
+* figure out how to split framework from react.js/redux.js
 
-
-# Build your application or framework using components!
+# Build your application
 
 UI component can consist of:
   - Component

@@ -1,7 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { add } from '../actions'
+import React from "react"
+import { connect } from "react-redux"
+import { add } from "../actions"
 
+require("./style.scss")
 /*
   Should this component have access to LIST COMPONENT actions(api)
   or should the parent component have the responsiblilty to assign
@@ -12,10 +13,10 @@ import { add } from '../actions'
 
 class Form extends React.Component {
   onSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     let input = this.refs.text
     this.props.addTodo(input.value)
-    input.value = "";
+    input.value = ""
   }
 
   render() {

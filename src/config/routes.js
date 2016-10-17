@@ -1,10 +1,11 @@
-// http://randycoulman.com/blog/2016/02/02/composing-routes-in-react-router/
-// https://github.com/reactjs/react-router-tutorial/tree/master/lessons
+/* http://randycoulman.com/blog/2016/02/02/composing-routes-in-react-router/ */
+/* https://github.com/reactjs/react-router-tutorial/tree/master/lessons */
+
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router';
-import { ApplicationLayout, ContactLayout, LoginLayout } from '../layouts'
+import { ApplicationLayout, NoMatchLayout, ContactLayout, LoginLayout, TodoLayout } from '../layouts'
 
 const userIsInATeam = (nextState, replace, callback) => {
   callback();
@@ -16,8 +17,10 @@ const configureRoutes = (routes) => {
       <Router history={browserHistory}>
         <Route path="/login" component={LoginLayout} />
         <Route path="/" component={ApplicationLayout} onEnter={userIsInATeam}>
+          <Route path="todos" component={TodoLayout} />
           <Route path="contact" component={ContactLayout} />
           {routes}
+          <Route path="*" component={NoMatchLayout} />
         </Route>
       </Router>)
 }

@@ -1,7 +1,7 @@
-import * as actions from './actions';
-import * as component from './component';
-import reducer from './reducer';
+import * as actions from "./actions"
+import * as component from "./component"
+import reducer from "./reducer"
 
-const key = "navigation";
+const key = "navigation"
 
-export default { actions, component, reducer, key };
+export default { actions, component, reducer, key }

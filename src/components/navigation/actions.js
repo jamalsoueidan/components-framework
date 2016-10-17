@@ -1,4 +1,4 @@
-import * as at from './action_types'
+import * as at from "./action_types"
 
 const add = (object) => ({
   type: at.ADD,

@@ -1,12 +1,12 @@
-import * as at from './action_types'
+import * as at from "./action_types"
 
 const addToNavigation = (state = [], action) => {
-  if ( action == at.ADD ) {
+  if ( action === at.ADD ) {
     return [
       ...state, {name: state.name, link: action.link}
     ]
   }
-  return state;
+  return state
 }
 
-export default addToNavigation;
+export default addToNavigation
