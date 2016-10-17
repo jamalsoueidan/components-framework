@@ -5,6 +5,8 @@ import configureRoutes, { JSX } from './routes'
 import configureStore, { store } from './store'
 import { Provider } from 'react-redux'
 
+require("./general.css")
+
 const start = (tag='application') => {
   // configureStore if developer didn't use Redux
   if( store === undefined ) {

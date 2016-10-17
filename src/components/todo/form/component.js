@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { add } from "../actions"
 
+require("./style.scss")
 /*
   Should this component have access to LIST COMPONENT actions(api)
   or should the parent component have the responsiblilty to assign

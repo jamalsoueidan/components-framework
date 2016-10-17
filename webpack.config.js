@@ -1,55 +1,45 @@
-// https://github.com/krasimir/webpack-library-starter
-// http://krasimirtsonev.com/blog/article/javascript-library-starter-using-webpack-es6
-var webpack = require('webpack');
-var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var path = require('path');
-var env = require('yargs').argv.mode;
+const autoprefixer = require('autoprefixer')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path')
 
-var libraryName = 'Framework';
-var buildName = "test";
+const buildName = 'development';
 
-var plugins = [], outputFile;
-
-if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({ minimize: true }));
-  plugins.push(new webpack.DefinePlugin({'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') } }))
-  outputFile = libraryName + '.min.js';
-} else {
-  outputFile = libraryName + '.js';
-}
-
-var config = {
-  entry: __dirname + '/src/' + buildName + '.js',
-  devtool: 'source-map',
+module.exports = {
+  entry: path.join(__dirname, "src", buildName + '.js'),
   output: {
-    path: __dirname + '/lib',
-    filename: outputFile,
-    library: libraryName,
-    libraryTarget: 'umd',
-    umdNamedDefine: true
+    filename: buildName + '.js',
+    path: path.join(__dirname, 'build'),
+    publicPath: '/build'
   },
   module: {
     loaders: [
       {
-        test: /(\.jsx|\.js)$/,
-        loader: 'babel',
-        exclude: /(node_modules|lib)/
+          test: /\.js$/,
+          loader: 'babel-loader',
+          exclude: /(node_modules|lib)/
       },
       {
-        test: /(\.jsx|\.js)$/,
-        loader: "eslint-loader",
+          test: /\.(css|scss)$/,
+          loader: ExtractTextPlugin.extract(['css', 'sass'])
+      },
+      {
+        test: /\.sass$/,
+        loaders:  ["style", "css", "sass"],
         exclude: /node_modules|lib/
       }
     ]
   },
+  postcss: [
+    autoprefixer({browsers: ['last 2 versions']})
+  ],
   resolve: {
-    root: path.resolve('./src'),
-    extensions: ['', '.js']
+    extensions: ['', '.js', '.sass'],
+    root: [path.join(__dirname, 'src')]
   },
+  plugins: [
+    new ExtractTextPlugin('style.css', { allChunks: true })
+  ],
   devServer: {
     historyApiFallback: true,
-  },
-  plugins: plugins
+  }
 };
-
-module.exports = config;

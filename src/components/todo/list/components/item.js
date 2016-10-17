@@ -1,3 +1,5 @@
+import React from "react"
+
 const Item = ({data, onRemove, onToggle}) => (
   <li style={(data.completed ? { textDecoration: "line-through" } : {})}>
     {data.text} -
