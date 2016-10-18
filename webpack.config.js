@@ -13,20 +13,13 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-          test: /\.js$/,
-          loader: 'babel-loader',
-          exclude: /(node_modules|lib)/
-      },
-      {
-          test: /\.(css|scss)$/,
-          loader: ExtractTextPlugin.extract(['css', 'sass'])
-      },
-      {
-        test: /\.sass$/,
-        loaders:  ["style", "css", "sass"],
-        exclude: /node_modules|lib/
-      }
+      { test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /(node_modules|lib)/ },
+      { test: /\.scss$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!sass-loader") },
+      { test: /\.css$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
     ]
   },
   postcss: [

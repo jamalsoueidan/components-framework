@@ -18,6 +18,7 @@ Navigation:
 - /component.js (component)
 - /index.js (exports)
 - /reducer.js (data)
+- /style.scss (styling)
 
 # Configure framework
 
