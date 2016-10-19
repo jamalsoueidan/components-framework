@@ -1,7 +1,6 @@
 ### NOT FINISHED
-* implement BEM/CSS
+* implement BEM
 * figure out how to handle component state based on url id
-* figure out how to split framework from react.js/redux.js
 
 # Build your application
 
