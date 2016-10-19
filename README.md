@@ -49,6 +49,35 @@ import start from './config/start'
 start('application'); //<div id="application"></div>
 ```
 
-# Framework initialization
+# Webpack enviroment
 
--
+We have three enviroment in our code.
+
+### Build framework
+
+To build the framework file, you use "npm run build" which exports the three methods so you can configureStore, configureRoutes and start the framework.
+
+```javascript
+npm run build
+```
+
+This would export the file ./src/build.js
+
+### Developing framework
+
+While improving the framework, you can start the project:
+
+```javascript
+npm run start // npm start
+```
+
+This would would execute the file ./src/development.js
+
+### Testing framework
+
+When we wish to test our framework through the ES5 exported code, we can do the following:
+
+1. npm run build
+2. copy the exported file inside /src/
+3. then use the production.js to import our framework
+4. npm run production
