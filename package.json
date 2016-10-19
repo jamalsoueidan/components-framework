@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=build",
-    "dev": "webpack --progress --colors --watch --mode=dev",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors"
+    "build": "webpack --config ./webpack.build.js -progress --colors -p --mode=build",
+    "production": "webpack --config ./webpack.build.js --progress -p --colors --mode=production",
+    "start": "webpack && webpack-dev-server --config ./webpack.config.js --progress --colors --watch"
   },
   "author": "",
   "license": "ISC",
@@ -39,6 +39,7 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "webpack-uglify-js-plugin": "^1.1.9"
   }
 }

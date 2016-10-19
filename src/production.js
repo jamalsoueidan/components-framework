@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router';
 
-import { configureRoutes, configureStore, start } from './Library.min.js'
+import { configureRoutes, configureStore, start } from './lib/KAF.js'
 
 const ContentLayout = () => (<div>content</div>)
 

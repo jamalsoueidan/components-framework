@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from "react"
 import { connect } from "react-redux"
-import {setVisibilityFilter} from "./actions"
+import { setVisibilityFilter } from "./actions"
 
-class Filter extends Component {
+class Filter extends React.Component {
   onClick(e) {
     e.preventDefault()
     this.props.changeFilter(this.props.filterBy)
