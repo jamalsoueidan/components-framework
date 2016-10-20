@@ -1,11 +1,13 @@
 var autoprefixer = require('autoprefixer')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path')
+var argv = require('yargs').argv;
 
 /*
   We are not building these files inside our javascript file, this mean you must include those libraries in the HTML
   page, exactly same version as in package.json
 */
+
 module.exports.externals = {
   "react" : "React",
   "react-dom": "ReactDOM",
@@ -13,6 +15,10 @@ module.exports.externals = {
   "react-redux": "ReactRedux",
   "react-router": "ReactRouter",
   "react-router-redux": "ReactRouterRedux"
+}
+
+if ( argv.externals !== "none" ) {
+  module.exports.externals = [];
 }
 
 module.exports.loaders = [

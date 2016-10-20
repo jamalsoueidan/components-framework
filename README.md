@@ -1,6 +1,7 @@
 ### NOT FINISHED
 * implement BEM
 * figure out how to handle component state based on url id
+* middleware API Redux
 
 # Build your application
 
@@ -58,7 +59,9 @@ To build the framework file, you use "npm run build" which exports the three met
 
 ```javascript
 npm run build
+npm run build -- --externals none
 ```
+ You can set external argument to none if you want to include all ventors in the framework build file.
 
 This would export the file ./src/build.js
 
