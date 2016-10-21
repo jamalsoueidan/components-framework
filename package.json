@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config ./webpack.build.js -progress --colors -p --mode=build",
     "production": "webpack --config ./webpack.build.js --progress -p --colors --mode=production",
-    "start": "webpack && webpack-dev-server --config ./webpack.config.js --progress --colors --watch"
+    "start": "webpack && webpack-dev-server --config ./webpack.config.js --output-public-path=/build/ --progress --colors --watch"
   },
   "author": "",
   "license": "ISC",
