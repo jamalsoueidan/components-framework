@@ -33,9 +33,11 @@ module.exports.loaders = [
     loader: "eslint",
     exclude: /node_modules|lib/ },
   { test: /\.scss$/,
-    loader: ExtractTextPlugin.extract("style", "css!autoprefixer!sass") },
+    loader: ExtractTextPlugin.extract("style", "css!autoprefixer!sass!postcss-loader") },
   { test: /\.css$/,
     loader: ExtractTextPlugin.extract("style", "css") },
+  {  test: /\.(jpe?g|png|gif|svg)$/i,
+     loaders: ['url?limit=8192', 'img'] }
 ]
 
 module.exports.postcss = [

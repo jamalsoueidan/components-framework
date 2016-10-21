@@ -16,6 +16,8 @@ module.exports = {
   },
   postcss: options.postcss,
   resolve: options.resolve,
+  watch: true,
+  debug: true,
   plugins: [
     new ExtractTextPlugin(buildName + '.css', { allChunks: true })
   ],

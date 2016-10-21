@@ -31,8 +31,9 @@ const testState = {
 
 let store;
 const configureStore = (reducers={}) => {
+  if ( store !== undefined ) return store;
   extend(privateReducers, reducers)
-  store = createStore(combineReducers(privateReducers), testState)
+  return store = createStore(combineReducers(privateReducers), testState)
 }
 
 export { configureStore as default, store }
