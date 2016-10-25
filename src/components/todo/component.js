@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import Form from "./form/component"
 import List from "./list/component"
 import Filter from "./filter/component"
-import {remove, toggle} from "./actions"
+import {remove, toggle, fetch} from "./actions"
 
 const style = {
   border: "1px red solid",
@@ -13,11 +13,18 @@ const style = {
 /* ONLY the parent component TODO should have access to redux, the nested component should get all the data
    through props! less component<>redux! */
 
-const Todo = ({items, visible, onRemove, onToggle}) => {
+let loaded = false;
+
+const Todo = ({items, visible, onRemove, onToggle, onFetch}) => {
   const events = { onRemove, onToggle }
 
   if ( visible === "completed" ) {
     items = items.filter(e => e.completed === true)
+  }
+
+  if (!loaded) {
+    onFetch();
+    loaded = true;
   }
 
   return (
@@ -36,7 +43,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   onRemove: remove,
-  onToggle: toggle
+  onToggle: toggle,
+  onFetch: fetch
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todo)

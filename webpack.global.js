@@ -33,7 +33,7 @@ module.exports.loaders = [
     loader: "eslint",
     exclude: /node_modules|lib/ },
   { test: /\.scss$/,
-    loader: ExtractTextPlugin.extract("style", "css!autoprefixer!sass!postcss-loader") },
+    loader: ExtractTextPlugin.extract("style", "css!autoprefixer!sass") },
   { test: /\.css$/,
     loader: ExtractTextPlugin.extract("style", "css") },
   {  test: /\.(jpe?g|png|gif|svg)$/i,

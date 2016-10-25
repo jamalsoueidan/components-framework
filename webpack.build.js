@@ -15,7 +15,7 @@ if ( argv.mode === "production" ) {
 module.exports = {
   entry: path.join(__dirname, "src", "build.js"),
   output: {
-    path: 'public',
+    path: 'build',
     filename: libraryName + ".js",
     library: libraryName,
     libraryTarget: 'umd',

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config ./webpack.build.js -progress --colors -p --mode=build",
     "production": "webpack --config ./webpack.build.js --progress -p --colors --mode=production",
-    "start": "webpack && webpack-dev-server --config ./webpack.config.js --output-public-path=/build/ --progress --colors --watch"
+    "start": "webpack-dev-server --config ./webpack.config.js --output-public-path=/public/ --progress --colors --watch"
   },
   "author": "",
   "license": "ISC",
@@ -36,6 +36,7 @@
     "node-sass": "^3.10.1",
     "postcss-loader": "^1.0.0",
     "react-hot-loader": "^3.0.0-beta.5",
+    "redux-api-middleware": "^1.0.2",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",

@@ -1,4 +1,5 @@
 import * as at from './action_types';
+import { CALL_API } from 'redux-api-middleware';
 
 /*
   Api, other components must understand what every action does!
@@ -18,4 +19,12 @@ const toggle = (id) => ({
   id
 })
 
-export { add, remove, toggle }
+const fetch = () =>  ({
+  [CALL_API]: {
+    endpoint: 'http://localhost:8080/todos.json',
+    method: 'GET',
+    types: [at.LOADING, at.SUCCESS, at.FAILURE]
+  }
+})
+
+export { add, remove, toggle, fetch }

@@ -8,7 +8,7 @@ module.exports = {
   entry: path.join(__dirname, "src", buildName + ".js"),
   output: {
     filename: buildName + '.js',
-    path: 'build'
+    path: 'public'
   },
   externals: options.externals,
   module: {

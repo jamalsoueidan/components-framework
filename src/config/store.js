@@ -1,22 +1,14 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { apiMiddleware } from 'redux-api-middleware';
 import { routerReducer } from 'react-router-redux'
 
-import privateReducers from './reducers';
+import initReducers from './reducers';
 
 const extend = (object, source) => {
   Object.keys(source).forEach(key => object[key] = source[key]);
 }
 
 const testState = {
-  list: [{
-    id: 0,
-    text: "Jamal",
-    completed: false
-  }, {
-    id: 1,
-    text: "Sten",
-    completed: true
-  }],
   navigation: [{
     name: "Home",
     link: "/"
@@ -29,11 +21,13 @@ const testState = {
   }]
 }
 
+const createStoreWithMiddleware = applyMiddleware(apiMiddleware)(createStore);
+
 let store;
 const configureStore = (reducers={}) => {
   if ( store !== undefined ) return store;
-  extend(privateReducers, reducers)
-  return store = createStore(combineReducers(privateReducers), testState)
+  extend(initReducers, reducers)
+  return store = createStoreWithMiddleware(combineReducers(initReducers), testState)
 }
 
 export { configureStore as default, store }
