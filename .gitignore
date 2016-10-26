@@ -32,7 +32,6 @@ node_modules
 jspm_packages
 lib
 build
-public
 
 # Optional npm cache directory
 .npm

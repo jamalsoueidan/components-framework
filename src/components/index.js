@@ -3,7 +3,7 @@
  */
 
 import Todo from "./todo/component"
-import Navigation from "./navigation/component"
+import ApplicationNavigation from "./application_navigation/component"
 import Counter from "./counter/component"
 
-export { Todo, Navigation, Counter }
+export { Todo, ApplicationNavigation, Counter }

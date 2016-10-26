@@ -1,9 +1,9 @@
 import React from "react"
-import { Navigation } from "../components"
+import { ApplicationNavigation } from "../components"
 
 const ApplicationLayout = (props) => (
   <div>
-    <Navigation />
+    <ApplicationNavigation />
     {props.children}
   </div>
 )

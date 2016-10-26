@@ -21,7 +21,7 @@ const toggle = (id) => ({
 
 const fetch = () =>  ({
   [CALL_API]: {
-    endpoint: 'http://localhost:8080/todos.json',
+    endpoint: 'http://localhost:8080/public/todos.json',
     method: 'GET',
     types: [at.LOADING, at.SUCCESS, at.FAILURE]
   }

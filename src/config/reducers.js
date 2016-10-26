@@ -2,11 +2,11 @@ import { routerReducer } from 'react-router-redux'
 
 import filter from '../components/todo/filter';
 import list from '../components/todo'
-import navigation from '../components/navigation'
+import applicationNavigation from '../components/application_navigation'
 
 export default {
   [filter.key]: filter.reducer,
   [list.key]: list.reducer,
-  [navigation.key]: navigation.reducer,
+  [applicationNavigation.key]: applicationNavigation.reducer,
   routing: routerReducer
 }

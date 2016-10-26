@@ -9,7 +9,7 @@ const extend = (object, source) => {
 }
 
 const testState = {
-  navigation: [{
+  applicationNavigation: [{
     name: "Home",
     link: "/"
   }, {
