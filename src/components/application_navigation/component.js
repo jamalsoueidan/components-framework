@@ -3,6 +3,8 @@ import { connect } from "react-redux"
 import BEM from '../../core/bem'
 import Menu from "../menu/component"
 
+require("./style.css")
+
 const b = BEM.with('KAF-block');
 
 const ApplicationNavigation = ({items}) => (

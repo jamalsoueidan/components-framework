@@ -1,6 +1,5 @@
 import React from "react"
 import Item from "./components/item"
-require("./style.scss")
 
 const List = ({events, items, visible}) => (
   <ul className="todos">

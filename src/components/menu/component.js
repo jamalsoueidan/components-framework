@@ -2,6 +2,8 @@ import React from "react"
 import MenuItem from "../menu_item/component"
 import BEM from '../../core/bem'
 
+//require("./style.scss")
+
 const b = BEM.with("KAF-Menu")
 
 export default ({items}) => (

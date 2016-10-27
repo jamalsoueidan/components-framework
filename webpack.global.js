@@ -32,10 +32,8 @@ module.exports.loaders = [
   { test: /(\.js)$/,
     loader: "eslint",
     exclude: /node_modules|lib/ },
-  { test: /\.scss$/,
-    loader: ExtractTextPlugin.extract("style", "css!autoprefixer!sass") },
-  { test: /\.css$/,
-    loader: ExtractTextPlugin.extract("style", "css") },
+  { test: /(\.scss|\.css)$/,
+    loader: ExtractTextPlugin.extract("style", "css!autoprefixer") },
   {  test: /\.(jpe?g|png|gif|svg)$/i,
      loaders: ['url?limit=8192', 'img'] }
 ]

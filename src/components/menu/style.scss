@@ -1,0 +1,30 @@
+.KAF-Menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    font-family: var(--font-normal);
+}
+
+.KAF-Menu__content {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.KAF-Menu__title {}
+
+.KAF-Menu--Horisontal {
+    outline: solid 1px blue;
+    flex-direction: column;
+    width: auto;
+    display: inline-flex;
+}
+
+.KAF-Menu--Horisontal .KAF-Menu__content {
+    display: flex;
+    flex-direction: row;
+}

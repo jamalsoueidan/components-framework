@@ -1,5 +1,5 @@
 // https://github.com/ReactTraining/react-router/tree/master/examples/auth-flow
 // todo
-export default const loggedIn = () => {
+export default () => {
   return false;
 }
