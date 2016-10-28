@@ -21,5 +21,6 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin(buildName + '.css', { allChunks: true })
   ],
+  sassLoader: options.sassLoader,
   devServer: options.devServer
 }

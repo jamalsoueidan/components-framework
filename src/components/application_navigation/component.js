@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import BEM from '../../core/bem'
 import Menu from "../menu/component"
 
-require("./style.css")
+require("./style.scss")
 
 const b = BEM.with('KAF-block');
 
