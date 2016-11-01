@@ -1,28 +1,27 @@
-/* http://randycoulman.com/blog/2016/02/02/composing-routes-in-react-router/ */
-/* https://github.com/reactjs/react-router-tutorial/tree/master/lessons */
+/* http://router5.github.io/docs/configuring-routes.html */
 
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { Router, Route, browserHistory } from 'react-router';
-import { ApplicationLayout, NoMatchLayout, ContactLayout, LoginLayout, TodoLayout } from '../layouts'
+import createRouter from 'router5';
+import loggerPlugin from 'router5/plugins/logger';
+import listenersPlugin from 'router5/plugins/listeners';
+import browserPlugin from 'router5/plugins/browser';
 
-const userIsInATeam = (nextState, replace, callback) => {
-  callback();
+const routes = [
+  { name: 'application',   path: '/' },
+  { name: 'todos',         path: '/todos' },
+  { name: 'todos.message', path: '/todos/:id' }
+];
+
+const router = createRouter(routes, {  defaultRoute: 'application' })
+router.usePlugin(loggerPlugin)
+router.usePlugin(browserPlugin({useHash: true}));
+
+const defaultRoutes = () => (routes)
+
+const configureRoutes = (additionalRoutes) => {
+  if (additionalRoutes !== undefined) {
+    router.add(additionalRoutes)
+  }
+  return router;
 }
 
-let JSX;
-const configureRoutes = (routes) => {
-  JSX = (
-      <Router history={browserHistory}>
-        <Route path="/login" component={LoginLayout} />
-        <Route path="/" component={ApplicationLayout} onEnter={userIsInATeam}>
-          <Route path="todos" component={TodoLayout} />
-          <Route path="contact" component={ContactLayout} />
-          {routes}
-          <Route path="*" component={NoMatchLayout} />
-        </Route>
-      </Router>)
-}
-
-export { configureRoutes as default, JSX }
+export { configureRoutes as default, defaultRoutes, router }

@@ -4,6 +4,7 @@ import Form from "./form/component"
 import List from "./list/component"
 import Filter from "./filter/component"
 import {remove, toggle, fetch} from "./actions"
+import { routeNodeSelector } from 'redux-router5';
 
 const style = {
   border: "1px red solid",
@@ -16,6 +17,7 @@ const style = {
 let loaded = false;
 
 const Todo = ({items, visible, onRemove, onToggle, onFetch}) => {
+  console.log("todos")
   const events = { onRemove, onToggle }
 
   if ( visible === "completed" ) {
@@ -37,9 +39,15 @@ const Todo = ({items, visible, onRemove, onToggle, onFetch}) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  items: state.list, visible: state.filterBy
-})
+const mapStateToProps = (state) => {
+  const selector = routeNodeSelector('todos');
+
+  return {
+    items: state.list,
+    visible: state.filterBy,
+    ...selector
+  }
+}
 
 const mapDispatchToProps = {
   onRemove: remove,

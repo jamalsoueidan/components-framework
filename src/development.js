@@ -15,7 +15,10 @@ const ContentLayout = () => (
   <div>content</div>
 )
 
-configureRoutes(<Route path="/content" component={ContentLayout} />)
+configureRoutes({
+  name: 'content',
+  path: '/content',
+})
 
 /* ************************************
   Configure Store : Here we add Counter reducer as example

@@ -1,9 +1,11 @@
 import React from 'react'
 import { render } from 'react-dom'
-
-import configureRoutes, { JSX } from './routes'
-import configureStore, { store } from './store'
 import { Provider } from 'react-redux'
+import { RouterProvider } from 'react-router5';
+import { ApplicationLayout } from '../layouts'
+
+import configureRoutes, { router } from './routes'
+import configureStore, { store } from './store'
 
 const start = (tag='application') => {
   // configureStore if developer didn't use Redux
@@ -12,12 +14,21 @@ const start = (tag='application') => {
   }
 
   // configureRoutes if developer didn't add any routes
-  if ( JSX === undefined ) {
+  if ( router === undefined ) {
     configureRoutes();
   }
 
   // render to screen
-  render(<Provider store={store}>{JSX}</Provider>, document.getElementById(tag))
+  router.start((err, state) => {
+    render(
+      <Provider store={store}>
+        <RouterProvider router={ router }>
+          <ApplicationLayout />
+        </RouterProvider>
+      </Provider>,
+      document.getElementById(tag)
+    )
+  });
 }
 
 export default start;

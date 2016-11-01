@@ -1,7 +1,6 @@
 import * as at from "./action_types.js"
 
 const listReducer = (state = [], action) => {
-  console.log(action)
   switch (action.type) {
     case at.ADD:
       return [
