@@ -4,16 +4,19 @@ import createRouter from 'router5';
 import loggerPlugin from 'router5/plugins/logger';
 import listenersPlugin from 'router5/plugins/listeners';
 import browserPlugin from 'router5/plugins/browser';
+import { constants } from 'router5';
 
 const routes = [
-  { name: 'application',   path: '/' },
-  { name: 'todos',         path: '/todos' },
-  { name: 'todos.message', path: '/todos/:id' }
+  { name: 'home',    path: '/' },
+  { name: 'todos',   path: '/todos' },
+  { name: 'contact', path: '/contact' }
 ];
 
-const router = createRouter(routes, {  defaultRoute: 'application' })
+const router = createRouter(routes, {
+  defaultRoutes: 'home'
+})
 router.usePlugin(loggerPlugin)
-router.usePlugin(browserPlugin({useHash: true}));
+router.usePlugin(browserPlugin());
 
 const defaultRoutes = () => (routes)
 

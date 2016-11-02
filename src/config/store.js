@@ -11,15 +11,15 @@ const extend = (object, source) => {
 }
 
 const testState = {
-  applicationNavigation: [{
+  navigation: [{
     name: "Home",
-    link: "/"
+    link: "home"
   }, {
     name: "Todo",
-    link: "/todos"
+    link: "todos"
   }, {
     name: "Contact us",
-    link: "/contact"
+    link: "contact"
   }]
 }
 

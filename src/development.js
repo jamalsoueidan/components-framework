@@ -6,14 +6,19 @@ import React from 'react';
 import { Route } from 'react-router';
 
 /* ************************************
+  Configure Store : Here we add Counter reducer as example
+************************************ */
+
+const Counter = (state=1, action) => (state);
+
+import configureStore from './config/store'
+configureStore({counter: Counter})
+
+/* ************************************
   Configure Routes : Here we add custom route place inside the application
 ************************************ */
 
 import configureRoutes from './config/routes';
-
-const ContentLayout = () => (
-  <div>content</div>
-)
 
 configureRoutes({
   name: 'content',
@@ -21,18 +26,19 @@ configureRoutes({
 })
 
 /* ************************************
-  Configure Store : Here we add Counter reducer as example
-************************************ */
-
-const Counter = (state=1, action) => (state);
-const reducers = {counter: Counter}
-
-import configureStore from './config/store'
-configureStore(reducers)
-
-/* ************************************
   Startup the framework
 ************************************ */
 
+import { connect } from "react-redux"
+import { routeNodeSelector } from 'redux-router5';
+
+const ContentLayout = connect(
+  state => routeNodeSelector('')
+)((props) => {
+
+  console.log("content", "reload")
+  return(<div>Content</div>)
+})
+
 import start from './config/start'
-start('application');
+start(<ContentLayout />);

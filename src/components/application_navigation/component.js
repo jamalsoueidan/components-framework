@@ -31,13 +31,13 @@ class ApplicationNavigation extends Component {
   render() {
     return(
     <div className={b({Application:true})}>
-      <Link router={ this.router } navigateTo={ this.navigateTo } name='todos'>Compose</Link>
+      <Link router={ this.router } navigateTo={ this.navigateTo } name='jamal'>change</Link>
     </div>)
   }
 }
 
 ApplicationNavigation.contextTypes = {
-    router: PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({

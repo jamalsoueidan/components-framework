@@ -7,7 +7,8 @@ import { ApplicationLayout } from '../layouts'
 import configureRoutes, { router } from './routes'
 import configureStore, { store } from './store'
 
-const start = (tag='application') => {
+//handle JSX is empty! 
+const start = (jsx, tag='application') => {
   // configureStore if developer didn't use Redux
   if( store === undefined ) {
     configureStore();
@@ -23,7 +24,9 @@ const start = (tag='application') => {
     render(
       <Provider store={store}>
         <RouterProvider router={ router }>
-          <ApplicationLayout />
+          <ApplicationLayout>
+            {jsx}
+          </ApplicationLayout>
         </RouterProvider>
       </Provider>,
       document.getElementById(tag)
