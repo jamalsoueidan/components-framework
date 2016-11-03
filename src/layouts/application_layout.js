@@ -1,26 +1,19 @@
 import "../theme/application.scss"
 
 import React, {Component} from "react"
-import { connect } from "react-redux"
-import { routeNodeSelector } from 'redux-router5';
 import { Navigation, Login } from "../components"
 import BEM from '../core/bem'
 
 const b = BEM.with('KAF-block');
 
-
-
 class ApplicationLayout extends Component {
   render() {
-    let { route, children } = this.props;
-
-    if (route.name === "home") {
-      children = <Login />
-    }
+    let { children } = this.props;
 
     let style = {
       border: "3px solid black",
-      padding: "5px",
+      marginTop: "10px",
+      padding: "5px"
     }
 
     return (
@@ -35,4 +28,4 @@ class ApplicationLayout extends Component {
   }
 }
 
-export default connect((state) => routeNodeSelector(''))(ApplicationLayout);
+export default ApplicationLayout;

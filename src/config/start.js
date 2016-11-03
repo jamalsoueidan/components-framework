@@ -2,12 +2,12 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { RouterProvider } from 'react-router5';
-import { ApplicationLayout } from '../layouts'
+import { FrameworkLayout, ApplicationLayout } from '../layouts'
 
 import configureRoutes, { router } from './routes'
 import configureStore, { store } from './store'
 
-//handle JSX is empty! 
+//handle JSX is empty!
 const start = (jsx, tag='application') => {
   // configureStore if developer didn't use Redux
   if( store === undefined ) {
@@ -24,9 +24,11 @@ const start = (jsx, tag='application') => {
     render(
       <Provider store={store}>
         <RouterProvider router={ router }>
-          <ApplicationLayout>
-            {jsx}
-          </ApplicationLayout>
+          <FrameworkLayout>
+            <ApplicationLayout>
+              {jsx}
+            </ApplicationLayout>
+          </FrameworkLayout>
         </RouterProvider>
       </Provider>,
       document.getElementById(tag)

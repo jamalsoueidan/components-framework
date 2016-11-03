@@ -1,11 +1,8 @@
 import React from "react"
+import { Login } from '../components'
 
 const LoginLayout = () => (
-  <form>
-    <input type="input" />
-    <input type="input" />
-    <button>Login</button>
-  </form>
+  <Login />
 )
 
 export default LoginLayout

@@ -20,16 +20,20 @@ const testState = {
   }, {
     name: "Contact us",
     link: "contact"
+  }, {
+    name: "Log out",
+    link: "logout"
   }]
 }
 
-const createStoreWithMiddleware = applyMiddleware(router5Middleware(router), logger(), apiMiddleware)(createStore);
+const createStoreWithMiddleware = applyMiddleware(router5Middleware(router), apiMiddleware)(createStore);
 
 let store;
 const configureStore = (reducers={}) => {
   if ( store !== undefined ) return store;
   extend(initReducers, reducers)
   store = createStoreWithMiddleware(combineReducers(initReducers), testState)
+  window.store = store;
   return store;
 }
 
