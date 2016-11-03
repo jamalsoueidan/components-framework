@@ -19,13 +19,12 @@ const router = createRouter(routes, {
   defaultRoutes: 'home',
   autoCleanUp: true
 })
-router.usePlugin(loggerPlugin);
+//router.usePlugin(loggerPlugin);
 router.usePlugin(browserPlugin());
 
 router.canActivate('home', (router) => (toState, fromState) => {
-  const isUserLoggedIn = localStorage.getItem("isUserLoggedIn") || false
-  console.log("isUserLoggedIn", isUserLoggedIn);
-  if (!isUserLoggedIn) {
+  const isUserLoggedIn = localStorage.getItem("isUserLoggedIn")
+  if (isUserLoggedIn !== "true") {
     router.navigate('login')
     return false;
   } else {

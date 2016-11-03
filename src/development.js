@@ -36,8 +36,7 @@ const ContentLayout = connect(
   state => routeNodeSelector('')
 )((props) => {
 
-  console.log("content", "reload")
-  return(<div>Content</div>)
+  return(<div>{props.route.name}</div>)
 })
 
 import start from './config/start'

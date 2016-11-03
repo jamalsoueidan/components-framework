@@ -17,7 +17,7 @@ class Login extends Component {
     const user = this.refs.user.value
 
     if ( user === "jamal" ) {
-      localStorage.setItem('isUserLoggedIn', true);
+      localStorage.setItem('isUserLoggedIn', "true");
       router.navigate('home');
     } else {
       this.setState({error: "Wrong username or password!"})
