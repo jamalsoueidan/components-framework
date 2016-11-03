@@ -6,7 +6,7 @@ import { LoginLayout } from './index'
 class FrameworkLayout extends Component {
   render() {
     let { route, children } = this.props;
-
+    console.log(route)
     if (route.name === "login") {
       return <LoginLayout />
     }

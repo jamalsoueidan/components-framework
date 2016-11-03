@@ -7,22 +7,21 @@ import browserPlugin from 'router5/plugins/browser';
 import { constants } from 'router5';
 
 const routes = [
-  { name: 'home',    path: '/' },
-  { name: 'todos',   path: '/todos' },
-  { name: 'contact', path: '/contact' },
+  { name: 'application',    path: '/' },
+  { name: 'application.todos',   path: 'todos' },
+  { name: 'application.contact', path: 'contact' },
   { name: 'login',   path: '/login' },
   { name: 'logout',  path: '/logout' },
-  { name: 'my_account', path: '/my_account'}
 ];
 
 const router = createRouter(routes, {
-  defaultRoutes: 'home',
+  defaultRoutes: 'application',
   autoCleanUp: true
 })
-//router.usePlugin(loggerPlugin);
+router.usePlugin(loggerPlugin);
 router.usePlugin(browserPlugin());
 
-router.canActivate('home', (router) => (toState, fromState) => {
+router.canActivate('application', (router) => (toState, fromState) => {
   const isUserLoggedIn = localStorage.getItem("isUserLoggedIn")
   if (isUserLoggedIn !== "true") {
     router.navigate('login')

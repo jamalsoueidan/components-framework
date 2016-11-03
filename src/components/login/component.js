@@ -18,7 +18,7 @@ class Login extends Component {
 
     if ( user === "jamal" ) {
       localStorage.setItem('isUserLoggedIn', "true");
-      router.navigate('home');
+      router.navigate('application');
     } else {
       this.setState({error: "Wrong username or password!"})
     }
