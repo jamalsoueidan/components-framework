@@ -5,6 +5,10 @@ import list from '../components/todo'
 import applicationNavigation from '../components/application_navigation'
 import navigation from '../components/navigation'
 
+/*
+** These are our reducers used by our internal framework components.
+ */
+
 export default {
   [filter.key]: filter.reducer,
   [list.key]: list.reducer,

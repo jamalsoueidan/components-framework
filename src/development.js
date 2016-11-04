@@ -22,7 +22,7 @@ import configureRoutes from './config/routes';
 
 configureRoutes({
   name: 'content',
-  path: 'content',
+  path: 'content'
 })
 
 /* ************************************
@@ -32,12 +32,7 @@ configureRoutes({
 import { connect } from "react-redux"
 import { routeNodeSelector } from 'redux-router5';
 
-const ContentLayout = connect(
-  state => routeNodeSelector('')
-)((props) => {
-
-  return(<div>{props.route.name}</div>)
-})
+import { ContentLayout } from './layouts'
 
 import start from './config/start'
 start(<ContentLayout />);

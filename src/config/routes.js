@@ -7,7 +7,7 @@ import browserPlugin from 'router5/plugins/browser';
 import { constants } from 'router5';
 
 const routes = [
-  { name: 'application',    path: '/', children: [
+  { name: 'application', path: '/', children: [
     { name: 'todos',   path: 'todos' },
     { name: 'contact', path: 'contact' }
   ]},
@@ -25,8 +25,10 @@ const startRoutes = () => {
   if(router !== undefined) return router;
   router = createRouter(routes, {
     defaultRoutes: 'application',
-    autoCleanUp: true
+    autoCleanUp: true,
+    strictQueryParams: false,
   })
+
   router.usePlugin(loggerPlugin);
   router.usePlugin(browserPlugin());
 

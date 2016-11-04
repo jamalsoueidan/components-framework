@@ -17,6 +17,7 @@ const ApplicationLayout = ({children}) => {
     <div className="KAF">
       <h1>Application</h1>
       <Navigation />
+
       <div className={b("content")} style={style}>
         {children}
       </div>
