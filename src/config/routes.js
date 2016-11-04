@@ -7,45 +7,48 @@ import browserPlugin from 'router5/plugins/browser';
 import { constants } from 'router5';
 
 const routes = [
-  { name: 'application',    path: '/' },
-  { name: 'application.todos',   path: 'todos' },
-  { name: 'application.contact', path: 'contact' },
+  { name: 'application',    path: '/', children: [
+    { name: 'todos',   path: 'todos' },
+    { name: 'contact', path: 'contact' }
+  ]},
   { name: 'login',   path: '/login' },
   { name: 'logout',  path: '/logout' },
 ];
 
-const router = createRouter(routes, {
-  defaultRoutes: 'application',
-  autoCleanUp: true
-})
-router.usePlugin(loggerPlugin);
-router.usePlugin(browserPlugin());
-
-router.canActivate('application', (router) => (toState, fromState) => {
-  const isUserLoggedIn = localStorage.getItem("isUserLoggedIn")
-  if (isUserLoggedIn !== "true") {
-    router.navigate('login')
-    return false;
-  } else {
-    return true;
-  }
-});
-
-router.canActivate('logout', (router) => (toState, fromState) => {
-  localStorage.setItem("isUserLoggedIn", false)
-  router.navigate('login')
-  return false;
-});
-
-window.router = router;
-
-const defaultRoutes = () => (routes)
+let router;
 
 const configureRoutes = (additionalRoutes) => {
-  if (additionalRoutes !== undefined) {
-    router.add(additionalRoutes)
-  }
+  routes[0].children.push(additionalRoutes);
+}
+
+const startRoutes = () => {
+  if(router !== undefined) return router;
+  router = createRouter(routes, {
+    defaultRoutes: 'application',
+    autoCleanUp: true
+  })
+  router.usePlugin(loggerPlugin);
+  router.usePlugin(browserPlugin());
+
+  router.canActivate('application', (router) => (toState, fromState) => {
+    const isUserLoggedIn = localStorage.getItem("isUserLoggedIn")
+    if (isUserLoggedIn !== "true") {
+      router.navigate('login')
+      return false;
+    } else {
+      return true;
+    }
+  });
+
+  router.canActivate('logout', (router) => (toState, fromState) => {
+    localStorage.setItem("isUserLoggedIn", false)
+    router.navigate('login')
+    return false;
+  });
+
+  window.router = router;
+
   return router;
 }
 
-export { configureRoutes as default, defaultRoutes, router }
+export { configureRoutes as default, startRoutes, router }

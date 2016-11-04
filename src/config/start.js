@@ -4,20 +4,15 @@ import { Provider } from 'react-redux'
 import { RouterProvider } from 'react-router5';
 import { FrameworkLayout, ApplicationLayout } from '../layouts'
 
-import configureRoutes, { router } from './routes'
-import configureStore, { store } from './store'
+import configureRoutes, { startRoutes, router } from './routes'
+import configureStore, { startStore, store } from './store'
 
 //handle JSX is empty!
 const start = (jsx, tag='application') => {
-  // configureStore if developer didn't use Redux
-  if( store === undefined ) {
-    configureStore();
-  }
 
-  // configureRoutes if developer didn't add any routes
-  if ( router === undefined ) {
-    configureRoutes();
-  }
+  // startRoutes
+  // startStore
+  startStore(startRoutes());
 
   // render to screen
   router.start((err, state) => {

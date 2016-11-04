@@ -22,7 +22,7 @@ import configureRoutes from './config/routes';
 
 configureRoutes({
   name: 'content',
-  path: '/content',
+  path: 'content',
 })
 
 /* ************************************

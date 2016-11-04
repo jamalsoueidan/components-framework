@@ -1,7 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { router5Middleware, router5Reducer } from 'redux-router5';
 import { apiMiddleware } from 'redux-api-middleware';
-import { router } from './routes'
 
 import logger from 'redux-logger';
 import initReducers from './reducers';
@@ -26,15 +25,18 @@ const testState = {
   }]
 }
 
-const createStoreWithMiddleware = applyMiddleware(router5Middleware(router), apiMiddleware)(createStore);
-
 let store;
 const configureStore = (reducers={}) => {
-  if ( store !== undefined ) return store;
   extend(initReducers, reducers)
+}
+
+// except the router instance
+const startStore = (router) => {
+  if ( store !== undefined ) return store;
+  const createStoreWithMiddleware = applyMiddleware(router5Middleware(router), apiMiddleware)(createStore);
   store = createStoreWithMiddleware(combineReducers(initReducers), testState)
   window.store = store;
   return store;
 }
 
-export { configureStore as default, store }
+export { configureStore as default, startStore, store }
