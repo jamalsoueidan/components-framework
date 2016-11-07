@@ -2,7 +2,7 @@ import "../theme/application.scss"
 
 import React, {Component} from "react"
 import { Navigation, Login } from "../components"
-import BEM from '../core/bem'
+import BEM from 'core/bem'
 
 const b = BEM.with('KAF-block');
 

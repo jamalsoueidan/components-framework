@@ -8,12 +8,11 @@ var argv = require('yargs').argv;
 var options = require('./webpack.global.js')
 
 var libraryName = "KAF"
-if ( argv.mode === "production" ) {
-  libraryName = "application";
-}
 
 module.exports = {
-  entry: path.join(__dirname, "src", "build.js"),
+  devtool: 'source-map',
+  context: path.join(__dirname, './library'),
+  entry: "kaf.js",
   output: {
     path: 'build',
     filename: libraryName + ".js",
@@ -30,7 +29,11 @@ module.exports = {
   plugins: [
             new ExtractTextPlugin( libraryName + '.css', { allChunks: true }),
             new webpack.optimize.DedupePlugin(),
-            new webpack.optimize.UglifyJsPlugin({ minimize: true, output: { comments: false }, compressor: { warnings: false } }),
+            new webpack.optimize.UglifyJsPlugin({
+              minimize: true,
+              output: { comments: false },
+              compressor: { warnings: false }
+            }),
             new webpack.DefinePlugin({ 'process.env': { 'NODE_ENV': JSON.stringify('production') } })
   ],
   sassLoader: options.sassLoader,

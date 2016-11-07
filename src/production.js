@@ -1,25 +1,31 @@
-import React from 'react'
+/* ************************************
+  Important to load these packages
+/************************************ */
+
+import React from 'react';
 import { Route } from 'react-router';
 
-import { configureRoutes, configureStore, start } from '../public/KAF.js'
-
-const ContentLayout = () => (<div>content</div>)
-
-configureRoutes(<Route path="/*" component={ContentLayout} />)
+import { configureRoutes, configureStore, start } from 'KAF.js'
 
 /* ************************************
   Configure Store : Here we add Counter reducer as example
 ************************************ */
 
 const Counter = (state=1, action) => (state);
-const reducers = {counter: Counter}
+configureStore({counter: Counter})
 
+/* ************************************
+  Configure Routes : Here we add custom route place inside the application
+************************************ */
 
-configureStore(reducers)
+configureRoutes({
+  name: 'content',
+  path: 'content'
+})
 
 /* ************************************
   Startup the framework
 ************************************ */
 
-
-start('application');
+const ContentLayout = () => (<div>content</div>)
+start(<ContentLayout />);
