@@ -11,7 +11,7 @@ class FrameworkLayout extends Component {
       return <LoginLayout />
     }
 
-    return (<div>{route.name}{children}</div>)
+    return (<div>{children}</div>)
   }
 }
 

@@ -11,8 +11,8 @@ import { configureRoutes, configureStore, start } from 'KAF.js'
   Configure Store : Here we add Counter reducer as example
 ************************************ */
 
-const Counter = (state=1, action) => (state);
-configureStore({counter: Counter})
+import reducers from './reducers'
+configureStore(reducers)
 
 /* ************************************
   Configure Routes : Here we add custom route place inside the application
@@ -27,5 +27,5 @@ configureRoutes({
   Startup the framework
 ************************************ */
 
-const ContentLayout = () => (<div>content</div>)
+import { ContentLayout } from './layouts'
 start(<ContentLayout />);

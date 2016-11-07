@@ -9,6 +9,17 @@ var options = require('./webpack.global.js')
 
 var libraryName = "KAF"
 
+options.plugins = [
+          new ExtractTextPlugin( libraryName + '.css', { allChunks: true }),
+          new webpack.optimize.DedupePlugin(),
+          new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            output: { comments: false },
+            compressor: { warnings: false }
+          }),
+          new webpack.DefinePlugin({ 'process.env': { 'NODE_ENV': JSON.stringify('production') } })
+]
+
 module.exports = {
   devtool: 'source-map',
   context: path.join(__dirname, './library'),
@@ -21,21 +32,10 @@ module.exports = {
     umdNamedDefine: true
   },
   externals: options.externals,
-  module: {
-    loaders: options.loaders
-  },
+  module: { loaders: options.loaders },
   postcss: options.postcss,
   resolve: options.resolve,
-  plugins: [
-            new ExtractTextPlugin( libraryName + '.css', { allChunks: true }),
-            new webpack.optimize.DedupePlugin(),
-            new webpack.optimize.UglifyJsPlugin({
-              minimize: true,
-              output: { comments: false },
-              compressor: { warnings: false }
-            }),
-            new webpack.DefinePlugin({ 'process.env': { 'NODE_ENV': JSON.stringify('production') } })
-  ],
+  plugins: options.plugins,
   sassLoader: options.sassLoader,
   devServer: options.devServer
 };

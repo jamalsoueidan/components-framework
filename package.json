@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config ./webpack.build.js -progress --colors -p --mode=build",
     "production": "webpack --config ./webpack.build.js --progress -p --colors --mode=production",
-    "start": "webpack-dev-server --config ./webpack.config.js --output-public-path=/public/ --progress --colors --watch"
+    "start": "webpack-dev-server --config ./webpack.config.js --progress --colors --watch"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "router5": "^4.3.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.5.2",
     "autoprefixer-loader": "^3.2.0",
     "b_": "^1.3.3",
     "babel": "^6.5.2",
@@ -30,6 +31,7 @@
     "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-es2015-classes": "^6.18.0",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.17.0",
@@ -38,6 +40,8 @@
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^6.4.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.24.1",
     "node-sass": "^3.10.1",
     "postcss-loader": "^1.0.0",
     "react-hot-loader": "^3.0.0-beta.5",

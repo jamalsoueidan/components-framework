@@ -5,11 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path')
 var argv = require('yargs').argv;
 
-/*
-  We are not building these files inside our javascript file, this mean you must include those libraries in the HTML
-  page, exactly same version as in package.json
-*/
-
+// As default all these libraries are included in the build
 module.exports.externals = {
   "react" : "React",
   "react-dom": "ReactDOM",
@@ -26,6 +22,9 @@ if ( argv.externals !== "none" ) {
 
 module.exports.loaders = [
   {
+    test: /\.html$/,
+    loader: 'html'
+  },{
     test: /\.js$/,
     loader: 'babel',
     exclude: /(node_modules)/ ,
@@ -60,7 +59,6 @@ module.exports.sassLoader =  {
 //
 // Root
 // http://moduscreate.com/es6-es2015-import-no-relative-path-webpack/
-
 module.exports.resolve = {
   extensions: ['', '.js', '.sass'],
   root: [
