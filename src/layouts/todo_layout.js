@@ -3,8 +3,8 @@ import { Todo, Counter } from "../components"
 
 const TodoLayout = () => (
   <div>
+    <h1>Todo Layout</h1>
     <Todo />
-    <Counter />
   </div>
 )
 

@@ -5,31 +5,35 @@
 import React from 'react';
 import { Route } from 'react-router';
 
+import { configureRoutes, configureStore, start } from 'KAF.js'
+
 /* ************************************
   Configure Routes : Here we add custom route place inside the application
 ************************************ */
 
-import configureRoutes from './config/routes';
+import { constants } from 'router5';
 
-const ContentLayout = () => (
-  <div>content</div>
-)
-
-configureRoutes(<Route path="/content" component={ContentLayout} />)
+configureRoutes([{
+  name: "todos",
+  path: "todos"}
+])
 
 /* ************************************
   Configure Store : Here we add Counter reducer as example
 ************************************ */
 
-const Counter = (state=1, action) => (state);
-const reducers = {counter: Counter}
+import reducers from './reducers'
+configureStore(reducers, {
+  todo: {
+    filter: 'all',
+    items: []
+  }
+})
 
-import configureStore from './config/store'
-configureStore(reducers)
 
 /* ************************************
   Startup the framework
 ************************************ */
 
-import start from './config/start'
-start('application');
+import { ContentLayout } from './layouts'
+start(<ContentLayout />);

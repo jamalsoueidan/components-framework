@@ -8,12 +8,22 @@ var argv = require('yargs').argv;
 var options = require('./webpack.global.js')
 
 var libraryName = "KAF"
-if ( argv.mode === "production" ) {
-  libraryName = "application";
-}
+
+options.plugins = [
+          new ExtractTextPlugin( libraryName + '.css', { allChunks: true }),
+          new webpack.optimize.DedupePlugin(),
+          new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            output: { comments: false },
+            compressor: { warnings: false }
+          }),
+          new webpack.DefinePlugin({ 'process.env': { 'NODE_ENV': JSON.stringify('production') } })
+]
 
 module.exports = {
-  entry: path.join(__dirname, "src", "build.js"),
+  devtool: 'source-map',
+  context: path.join(__dirname, './library'),
+  entry: "kaf.js",
   output: {
     path: 'build',
     filename: libraryName + ".js",
@@ -22,17 +32,10 @@ module.exports = {
     umdNamedDefine: true
   },
   externals: options.externals,
-  module: {
-    loaders: options.loaders
-  },
+  module: { loaders: options.loaders },
   postcss: options.postcss,
   resolve: options.resolve,
-  plugins: [
-            new ExtractTextPlugin( libraryName + '.css', { allChunks: true }),
-            new webpack.optimize.DedupePlugin(),
-            new webpack.optimize.UglifyJsPlugin({ minimize: true, output: { comments: false }, compressor: { warnings: false } }),
-            new webpack.DefinePlugin({ 'process.env': { 'NODE_ENV': JSON.stringify('production') } })
-  ],
+  plugins: options.plugins,
   sassLoader: options.sassLoader,
   devServer: options.devServer
 };
