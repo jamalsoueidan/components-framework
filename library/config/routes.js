@@ -7,10 +7,11 @@ import browserPlugin from 'router5/plugins/browser';
 import { constants } from 'router5';
 
 const routes = [
-  { name: 'application', path: '/', children: [
-    { name: 'todos',   path: 'todos' },
-    { name: 'contact', path: 'contact' }
-  ]},
+  { name: 'application', path: '/', children: [{
+    name: constants.UNKNOWN_ROUTE,
+    params: { path: '/route-not-found' },
+    path: '/route-not-found'
+  }]},
   { name: 'login',   path: '/login' },
   { name: 'logout',  path: '/logout' },
 ];
@@ -18,7 +19,7 @@ const routes = [
 let router;
 
 const configureRoutes = (additionalRoutes) => {
-  routes[0].children.push(additionalRoutes);
+  routes[0].children = routes[0].children.concat(additionalRoutes);
 }
 
 const startRoutes = () => {
@@ -27,6 +28,7 @@ const startRoutes = () => {
     defaultRoutes: 'application',
     autoCleanUp: true,
     strictQueryParams: false,
+    allowNotFound: true
   })
 
   router.usePlugin(loggerPlugin);

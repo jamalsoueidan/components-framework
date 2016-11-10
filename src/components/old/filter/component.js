@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react"
 import { connect } from "react-redux"
 import { setVisibilityFilter } from "./actions"
 
+
 class Filter extends React.Component {
   onClick(e) {
     e.preventDefault()

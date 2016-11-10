@@ -1,7 +1,7 @@
 import React from "react"
 import { Counter } from "../components"
 
-const ContactLayout = () => (
+const CounterLayout = () => (
   <div>
     <Counter />
     <Counter />
@@ -9,4 +9,4 @@ const ContactLayout = () => (
   </div>
 )
 
-export default ContactLayout
+export default CounterLayout

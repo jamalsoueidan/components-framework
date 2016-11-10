@@ -1,7 +1,5 @@
-import filter from './components/todo/filter';
-import list from './components/todo'
+import todo from './components/todo'
 
 export default {
-  [filter.key]: filter.reducer,
-  [list.key]: list.reducer
+  [todo.key]: todo.reducer
 }

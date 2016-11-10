@@ -1,58 +1,47 @@
-import React from "react"
+import React, { Component } from 'react'
+import { remove, toggle, add, setFilter } from './actions'
 import { connect } from "react-redux"
-import Form from "./form/component"
-import List from "./list/component"
-import Filter from "./filter/component"
-import {remove, toggle, fetch} from "./actions"
-import { routeNodeSelector } from 'redux-router5';
+import { List, Form, Filter } from "./components"
 
-const style = {
-  border: "1px red solid",
-  padding: "10px"
-}
+/* Only the Root component should have update notification from Redux */
+/* The nested component should only receive what they need from the Root component */
 
-/* ONLY the parent component TODO should have access to redux, the nested component should get all the data
-   through props! less component<>redux! */
-
-let loaded = false;
-
-const Todo = ({items, visible, onRemove, onToggle, onFetch}) => {
-  console.log("todos")
-  const events = { onRemove, onToggle }
-
-  if ( visible === "completed" ) {
-    items = items.filter(e => e.completed === true)
-  }
-
-  if (!loaded) {
-    onFetch();
-    loaded = true;
-  }
-
-  return (
-    <div style={style}>
-      <Form />
-      <List events={events} items={items} />
-      <Filter filterBy="all">All</Filter> -
-      <Filter filterBy="completed">Completed</Filter>
-    </div>
-  )
-}
-
-const mapStateToProps = (state) => {
-  const selector = routeNodeSelector('todos');
-
-  return {
-    items: state.list,
-    visible: state.filterBy,
-    ...selector
+class Todo extends Component {
+  render() {
+    return (
+      <div>
+        <Form add={this.props.add} />
+        <List {...this.props} />
+        <Filter currentFilter={this.props.filter} setFilter={this.props.setFilter} />
+      </div>
+    )
   }
 }
+
+const filterItemsByFilterValue = (items, filter) => {
+  if(filter!=='all') {
+    return items.filter((item) => {
+      if(filter==='completed' && item.completed) {
+        return item;
+      }
+      if(filter==='active' && !item.completed) {
+        return item;
+      }
+    })
+  }
+  return items;
+}
+
+const mapStateToProps = (state) => ({
+  filter: state.todo.filter,
+  items: filterItemsByFilterValue(state.todo.items, state.todo.filter)
+})
 
 const mapDispatchToProps = {
-  onRemove: remove,
-  onToggle: toggle,
-  onFetch: fetch
+  remove,
+  toggle,
+  add,
+  setFilter
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todo)

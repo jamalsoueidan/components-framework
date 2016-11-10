@@ -1,9 +1,9 @@
 import ContentLayout from "./content_layout"
-import ContactLayout from "./contact_layout"
+import CounterLayout from "./counter_layout"
 import TodoLayout from "./todo_layout"
 
 export {
   ContentLayout,
-  ContactLayout,
+  CounterLayout,
   TodoLayout
 }

@@ -12,7 +12,7 @@ class Navigation extends Component {
   }
 
   onclick(item) {
-    console.log(item.link)
+    console.log("clicked", item.link)
     this.navigate(item.link)
   }
 

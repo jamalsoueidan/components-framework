@@ -1,6 +1,7 @@
 ### NOT FINISHED
 * implement BEM
 * figure out how to handle component state based on url id
+* draw diagram how the framework startup
 * middleware API Redux
 
 # Build your application

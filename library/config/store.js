@@ -9,25 +9,24 @@ const extend = (object, source) => {
   Object.keys(source).forEach(key => object[key] = source[key]);
 }
 
-const testState = {
-  navigation: [{
-    name: "Home",
-    link: "application"
-  }, {
-    name: "Todo",
-    link: "application.todos"
-  }, {
-    name: "Contact us",
-    link: "application.contact"
-  }, {
-    name: "Log out",
-    link: "logout"
-  }]
-}
+let testState = {navigation: [{
+  name: "Home",
+  link: "application"
+}, {
+  name: "Todos",
+  link: "application.todos"
+}, {
+  name: "Counter",
+  link: "application.counter"
+}, {
+  name: "Log out",
+  link: "logout"
+}]}
 
 let store;
-const configureStore = (reducers={}) => {
+const configureStore = (reducers={}, initState={}) => {
   extend(initReducers, reducers)
+  testState = Object.assign({}, testState, initState)
 }
 
 // except the router instance
